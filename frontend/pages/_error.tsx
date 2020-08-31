@@ -1,9 +1,10 @@
-import Error from "components/Error"
+import { Error } from "components/Error"
+import { GetServerSideProps } from "next"
 
 const CustomError = (statusCode: number) => <Error statusCode={statusCode} />
 
-export async function getServerSideProps({ res, err }) {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  const statusCode = res ? res.statusCode : 404
   return { props: { statusCode } }
 }
 

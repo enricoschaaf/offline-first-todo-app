@@ -1,4 +1,4 @@
-import Error from "components/Error"
+import { Error } from "components/Error"
 
 const Custom404 = () => <Error statusCode={404} />
 
